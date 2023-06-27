@@ -1,0 +1,161 @@
+/* Global Styles */
+
+body {
+    margin: 0;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.5;
+    background-color: #ffffff;
+    min-height:100vh;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+#navigationBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -10px 20px 0px grey;
+    z-index: 2;
+    background-color: white;
+    padding: 20px 20px;
+}
+
+#footerBar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 10px 20px 0px grey;
+    z-index: 2;
+    background-color: white;
+    padding: 20px 20px;
+    text-align:center;
+}
+
+#cards{
+    padding-top: calc(64px + 20px);
+}
+
+.navLink{
+    float: right;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.navLink a{
+    color: black;
+    text-decoration: none;
+}
+
+.navLink:hover{
+    text-decoration: underline;
+}
+
+h1{
+    font-size: 50px !important;
+}
+
+h2{
+    font-size: 30px !important;
+}
+
+.center{
+    text-align:center;
+}
+
+.spacer{
+    height: 20px;
+}
+
+/* Start Buttons */
+
+.nkButtonBlack{
+    color: black;
+    border: 1px solid black;
+    padding: 15px 20px;
+    text-decoration: none !important;
+    transition: 0.3s;
+}
+
+.nkButtonBlack:hover{
+    color: white;
+    background-color: black;
+}
+
+/* End Button */
+
+.informationText{
+    font-size: 20px;
+}
+
+a.informationText{
+    color: #0060df;
+    text-decoration: underline;
+}
+
+.projectContainer{
+    margin: 20px 0px;
+}
+
+.projectTitle{
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.projectLanguages{
+    font-size: 16px;
+}
+
+.projectPhoto{
+    max-width: 100%;
+   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.projectPhoto:hover{
+    transition: 0.5s;
+    transform: translateY(-5px);
+}
+
+#projectsSection li{
+    font-size: 15px;
+}
+
+#projectsSection hr{
+     margin: 30px 0px;
+}
+
+.slideFromLeft, .slideFromRight{
+    margin-top: 30px;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+    border-left: 2px solid black;
+    padding: 20px 20px;
+    background-color:white;
+}
+
+/* rows and columns */
+#profilePhoto{
+    width: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+@media(min-width: 980px){
+    #content{
+        padding: 0px 20%;
+    }
+}
+
+@media(max-width: 980px){
+    #profileColumn{
+        height: 225px;
+    }
+    #content{
+        padding: 0px 5%;
+    }
+}
