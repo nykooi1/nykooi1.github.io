@@ -90,7 +90,11 @@ h2{
     font-size: 20px;
 }
 
-.projectHeader a, .projectHeader{
+.projectHeader{
+    font-size: 25px;
+}
+
+.projectHeader a{
     color: #0060df;
     text-decoration: underline;
     font-size: 25px;
