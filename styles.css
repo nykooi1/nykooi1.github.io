@@ -90,9 +90,10 @@ h2{
     font-size: 20px;
 }
 
-a.informationText{
+.projectHeader a{
     color: #0060df;
     text-decoration: underline;
+    font-size: 25px;
 }
 
 .projectContainer{
