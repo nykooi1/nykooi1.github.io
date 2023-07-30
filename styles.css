@@ -166,3 +166,7 @@ h2{
         padding: 0px 5%;
     }
 }
+
+iframe{
+    max-width: 100%;
+}
