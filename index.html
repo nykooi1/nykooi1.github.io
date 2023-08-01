@@ -136,7 +136,7 @@
         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body">
                 <img src="" alt="Image" id="modalImage">
                 </div>
@@ -149,8 +149,7 @@
             function openImageModal(imageSrc) {
                 const modalImage = document.getElementById('modalImage');
                 modalImage.src = imageSrc;
-                const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-                imageModal.show();
+                $('#imageModal').modal('show');
             }
         </script>
         
