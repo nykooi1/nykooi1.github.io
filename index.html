@@ -83,9 +83,7 @@
                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/3oGMCvCoD4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <a href="/" target="_#">
-                                        <img class="projectPhoto" src="./images/thebrowserbot.jpg">
-                                    </a>
+                                    <img class="projectPhoto" src="./images/thebrowserbot.jpg" onclick="openImageModal('./images/thebrowserbot.jpg')">
                                 </div>
                             </div>
                         </div>
@@ -109,24 +107,16 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 mt-3">
-                                    <a href="https://dhalkc.com/menu/" target="_#">
-                                        <img class="projectPhoto" src="./images/dhal_menu_home.jpg">
-                                    </a>
+                                    <img class="projectPhoto" src="./images/dhal_menu_home.jpg" onclick="openImageModal('./images/dhal_menu_home.jpg')">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <a href="https://dhalkc.com/menu/" target="_#">
-                                        <img class="projectPhoto" src="./images/dhal_menu_modal.jpg">
-                                    </a>
+                                    <img class="projectPhoto" src="./images/dhal_menu_modal.jpg" onclick="openImageModal('./images/dhal_menu_modal.jpg')">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <a href="https://dhalkc.com/menu/" target="_#">
-                                        <img class="projectPhoto" src="./images/dhal_live_2.jpg">
-                                    </a>
+                                    <img class="projectPhoto" src="./images/dhal_live_2.jpg" onclick="openImageModal('./images/dhal_live_2.jpg')">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <a href="https://dhalkc.com/menu/" target="_#">
-                                        <img class="projectPhoto" src="./images/dhal_live_3.jpg">
-                                    </a>
+                                    <img class="projectPhoto" src="./images/dhal_live_3.jpg" onclick="openImageModal('./images/dhal_live_3.jpg')">
                                 </div>
                             </div>
                         </div>
@@ -141,19 +131,26 @@
         <div id="footerBar">
             :)
         </div>
-        
+
+        <!-- The modal element to display the image -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                <img src="" alt="Image" id="modalImage">
+                </div>
+            </div>
+            </div>
+        </div>
+
         <script>
-        
-            /* scrolls to the given element id */
-            function vScrollTo(vId) {
-                const element = document.getElementById(vId);
-                const topPos = element.getBoundingClientRect().top + window.pageYOffset - 80;
-                window.scrollTo({
-                  top: topPos, // scroll so that the element is at the top of the view
-                  behavior: 'smooth' // smooth scroll
-                })
+            // Function to open the modal and update the image source
+            function openImageModal(imageSrc) {
+                const modalImage = document.getElementById('modalImage');
+                modalImage.src = imageSrc;
+                const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                imageModal.show();
             }
-            
         </script>
         
     </body>
