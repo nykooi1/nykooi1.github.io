@@ -177,4 +177,9 @@ iframe{
 /* modal */
 
 /* Custom CSS for the fullscreen modal */
-  
+
+.btn-close{
+    width: 2em !important;
+    height: 2em !important;
+    background-size: 2em !important;
+}
