@@ -114,15 +114,9 @@ h2{
 }
 
 .projectPhoto{
-    cursor: pointer;
     max-width: 100%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 5px;
-}
-
-.projectPhoto:hover{
-    transition: 0.5s;
-    transform: translateY(-5px);
 }
 
 #projectsSection li{
@@ -172,14 +166,4 @@ iframe{
     height:100%;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-}
-
-/* modal */
-
-/* Custom CSS for the fullscreen modal */
-
-.btn-close{
-    width: 2em !important;
-    height: 2em !important;
-    background-size: 2em !important;
 }

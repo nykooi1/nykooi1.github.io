@@ -83,7 +83,7 @@
                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/3oGMCvCoD4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <img class="projectPhoto" src="./images/thebrowserbot.jpg" onclick="openImageModal('./images/thebrowserbot.jpg')">
+                                    <img class="projectPhoto" src="./images/thebrowserbot.jpg">
                                 </div>
                             </div>
                         </div>
@@ -107,16 +107,16 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 mt-3">
-                                    <img class="projectPhoto" src="./images/dhal_menu_home.jpg" onclick="openImageModal('./images/dhal_menu_home.jpg')">
+                                    <img class="projectPhoto" src="./images/dhal_menu_home.jpg">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <img class="projectPhoto" src="./images/dhal_menu_modal.jpg" onclick="openImageModal('./images/dhal_menu_modal.jpg')">
+                                    <img class="projectPhoto" src="./images/dhal_menu_modal.jpg">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <img class="projectPhoto" src="./images/dhal_live_2.jpg" onclick="openImageModal('./images/dhal_live_2.jpg')">
+                                    <img class="projectPhoto" src="./images/dhal_live_2.jpg">
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                    <img class="projectPhoto" src="./images/dhal_live_3.jpg" onclick="openImageModal('./images/dhal_live_3.jpg')">
+                                    <img class="projectPhoto" src="./images/dhal_live_3.jpg">
                                 </div>
                             </div>
                         </div>
@@ -131,27 +131,6 @@
         <div id="footerBar">
             :)
         </div>
-
-        <!-- The modal element to display the image -->
-        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="width: 90%; max-width: none;">
-            <div class="modal-content" style="background-color: transparent; border: none; text-align:center;">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="margin-left:auto;"></button>
-                <div class="modal-body">
-                <img src="" alt="Image" id="modalImage" style="max-width:100%; width:100%;">
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <script>
-            // Function to open the modal and update the image source
-            function openImageModal(imageSrc) {
-                const modalImage = document.getElementById('modalImage');
-                modalImage.src = imageSrc;
-                $('#imageModal').modal('show');
-            }
-        </script>
         
     </body>
 
