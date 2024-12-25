@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Noah Kim Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+        <script>
+            // toggles the journey accordion
+            function toggleAccordion() {
+                const content = document.getElementById('journeyContent');
+                const arrow = document.getElementById('journeyArrow');
+                if (content.style.maxHeight === '0px') {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    content.style.maxHeight = '0px';
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            }
+        </script>    
+    </head>
+
+    <body class="text-sm md:text-base bg-white m-0 text-black p-10 max-w-screen overflow-x-hidden">
+
+        <div class="max-w-full overflow-x-hidden">
+
+            <!-- Title -->
+            <div class="text-center text-6xl font-bold">
+                Noah Kim
+            </div>
+
+            <!-- Sub Title -->
+            <div class="text-center text-lg mb-4 font-bold">
+                Software Engineer
+            </div>
+
+            <!-- Icon Links -->
+            <div class="flex space-x-8 w-full items-center justify-center text-3xl">
+
+                <!-- Resume -->
+                <a href="./Noah_Kim_Resume.pdf" target="_#">
+                    <i class="fa fa-file-pdf-o cursor-pointer" style="color: #ED2224" aria-hidden="true"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/noahykim/" target="_#">
+                    <i class="fa fa-linkedin cursor-pointer" style="color: #0077B5" aria-hidden="true"></i>
+                </a>
+
+                <!-- Github -->
+                <a href="https://github.com/nykooi1" target="_#">
+                    <i class="fa fa-github cursor-pointer" style="color: #6e5494"; aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+            <div class="mb-4"></div>
+
+             <!-- Profile Photo -->
+            <div class="text-center w-36 h-36 rounded-full overflow-hidden m-auto border border-black">
+                <img src="./profile.jpg" />
+            </div>
+
+            <div class="mb-4"></div>
+
+            <!-- Description -->
+            <div class="w-full md:w-5/12 m-auto">
+
+                <!-- Para 1 -->
+                <div class="mb-4">
+                    I graduated from 
+                    <a style="color: #990000" class="font-bold" href="https://www.usc.edu/" target="_#">
+                        USC 
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a> 
+                    with a bachelor's degree in <strong>Computer Science</strong>, gaining hands-on experience as a 
+                    full stack developer at small marketing startup during my university years. 
+                </div>
+
+                <!-- Para 2 -->
+                <div class="mb-4">
+                    Currently, I work as a <strong>Software Engineer</strong> at
+                    <a class="font-bold" style="color: red" href="https://www.crowdstrike.com/" target="_#">
+                        CrowdStrike 
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>,
+                    working in the Managed Services product group, supporting Falcon Complete in protecting customers around the globe.
+                    In my free-time I enjoy exploring new technologies and building out personal projects.
+                </div>
+
+                <!-- Para 3 -->
+                <div class="mb-4">
+                    Outside of coding I enjoy going to the gym, exploring cafes (my favorite is MemoryLook in Koreatown) and reading
+                    (currently reading Game of Thrones - the one time I watched a show / movie before reading the book).
+                </div>
+
+                <!-- Journey Accordion -->
+                <div class="w-full mt-8">
+
+                    <button class="flex items-center justify-between w-full p-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all duration-300"
+                            onclick="toggleAccordion()">
+                        <span class="text-xl font-semibold">
+                            My full tech journey... 
+                            <i class="fa fa-rocket" style="color: red;"></i>
+                        </span>
+                        <i class="fa fa-chevron-down transition-transform duration-300" id="journeyArrow" style="transform: rotate(0deg);"></i>
+                    </button>
+                    
+                    <div id="journeyContent" 
+                        class="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                        style="max-height: 0;">
+                        <!-- Timeline items -->
+                        <div class="flex flex-col gap-4 text-sm pt-4 px-4">
+                            <div class="flex flex-col md:grid md:grid-cols-[70px_1fr] gap-2 md:gap-8">
+                                <!-- 2018 -->
+                                <div class="font-bold mb-2 md:mb-0">2018</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p class="mb-2">
+                                        Took my first web development class in junior year of high school and started learning 
+                                        JavaScript and PHP on Udemy and YouTube in my free time along with HTML/CSS
+                                        <i class="fa fa-html5" aria-hidden="true"></i>
+                                    </p>
+                                    <p>
+                                        I started making websites for my classmates parents' businesses. 
+                                        My first one being for my friend's lawn care company 
+                                        <i class="fa fa-leaf" aria-hidden="true"></i>
+                                    </p>
+                                </div>
+
+                                <!-- 2019 -->
+                                <div class="font-bold mb-2 md:mb-0">2019</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p class="mb-2">
+                                        I started working part-time as a full stack developer at a small marketing startup, 
+                                        leveraging my skills in PHP and JavaScript.</p>
+                                    <p>
+                                        I got to work on a lot of different projects, my favorite being a menu application for an 
+                                        elderly assisted living facility which was my first time truly "deploying" a project
+                                        <i class="fa fa-ship" aria-hidden="true"></i>
+                                    </p>
+                                </div>
+
+                                <!-- 2021 -->
+                                <div class="font-bold mb-2 md:mb-0">2021</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p class="mb-2">Got into <a class="font-bold" href="https://www.usc.edu/" target="_#" style="color: #990000">USC</a> 
+                                    for Computer Science and continued working as a full stack developer at the same startup.</p>
+                                    <p>This is where I ventured outside of vanilla Javascript + jQuery and discovered just how many JavaScript libraries and frameworks there were...</p>
+                                </div>
+
+                                <!-- Dec 2023 -->
+                                <div class="font-bold mb-2 md:mb-0">Dec 2023</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p>Graduated from <a class="font-bold" href="https://www.usc.edu/" target="_#" style="color: #990000">USC</a> with a bachelor's degree in Computer Science <i class="fa fa-graduation-cap" aria-hidden="true"></i></p>
+                                </div>
+
+                                <!-- Jan 2024 -->
+                                <div class="font-bold mb-2 md:mb-0">Jan 2024</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p>
+                                        Joined 
+                                        <a class="font-bold" href="https://www.bestchoiceproducts.com/" style="color: #101827" target="_#">
+                                            Best Choice Products 
+                                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                                        </a>
+                                        as a Software Engineer, developing warehouse management solutions using Angular and Java Spring Boot, 
+                                        backed by Azure SQL. Implemented new workflows that significantly improved operational efficiency
+                                        <i class="fa fa-cubes" aria-hidden="true"></i>
+                                    </p>
+                                </div>
+
+                                <!-- Jan 2025 -->
+                                <div class="font-bold mb-2 md:mb-0">Jan 2025</div>
+                                <div class="border-l-2 border-gray-200 pl-4">
+                                    <p>
+                                        Joined 
+                                        <a class="font-bold" href="https://www.crowdstrike.com/" style="color: red" target="_#">
+                                            CrowdStrike <i class="fa fa-external-link" aria-hidden="true"></i>
+                                        </a> 
+                                        as a Software Engineer working in the Managed Services product group, 
+                                        supporting Falcon Complete in protecting customers around the globe <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8"></div>
+
+            <!-- Projects -->
+            <div class="text-center text-4xl mb-4 font-bold">
+                Personal Projects
+            </div>
+
+            <div class="mb-4"></div>
+
+            <!-- Project 1 -->
+            <div class="w-full md:w-5/12 mx-auto mb-8">
+
+                <!-- Projects -->
+                <div class="text-center text-2xl font-bold">
+                    A.I. Client Services
+                </div>
+
+                  <!-- Stack -->
+                <div class="mb-4 text-center italic">
+                    Next.js, Node.js, PHP, PostgreSQL, Twilio, Vercel
+                </div>
+
+                   <!-- Description -->
+                <div class="mb-4">
+                    A.I. Client Services is a web application that automates the process of following up with patients 
+                    after their visit to a clinic via a configureable A.I. phone call / text message flow.
+                    Each interaction is analyzed and stored in a database to provide insights on patient satisfaction 
+                    and clinic performance.
+                </div>
+
+            </div>
+
+            <!-- Project 1 Images -->
+            <div class="w-full md:w-7/12 m-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <img src="./images/ai_client_services/landing_page.jpg" alt="Landing Page" class="w-full h-auto" />
+                    <img src="./images/ai_client_services/patients.jpg" alt="Patients" class="w-full h-auto" />
+                    <img src="./images/ai_client_services/logs.jpg" alt="Logs" class="w-full h-auto" />
+                    <img src="./images/ai_client_services/stats.jpg" alt="Stats" class="w-full h-auto" />
+                </div>
+            </div>
+
+            <div class="mb-8"></div>
+
+            <!-- Project 2 -->
+            <div class="w-full md:w-5/12 mx-auto mb-8">
+
+            <!-- Projects -->
+            <div class="text-center text-2xl font-bold">
+                A.I. Study Dashboard
+            </div>
+
+            <!-- Stack -->
+            <div class="mb-4 text-center italic">
+                React.js, OpenAI API, SpeechRecognition API, Spotify API
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+                Designed and developed a study and work assistant dashboard using React, 
+                featuring a seamless <strong>voice command interface</strong> enabled by <strong>OpenAI's</strong> advanced natural language
+                processing technology.
+            </div>
+
+            <div class="mb-4">
+                Integrated <strong>ChatGPT</strong> for intelligent responses, conducted Google searches, and facilitated personalized 
+                music playback from users' <strong>Spotify</strong> accounts, all through voice commands, while also providing convenient 
+                timer-setting capabilities for enhanced productivity.
+            </div>
+
+            <div class="mb-4">
+                Implemented Spotify's OAuth authentication, along with cookies to track user sign-in status and manage their token ID.
+            </div>
+
+            </div>
+
+            <!-- Project 2 Images -->
+            <div class="w-full md:w-7/12 m-auto">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3oGMCvCoD4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <img src="./images/thebrowserbot.jpg" alt="Landing Page" class="w-full h-auto" />
+                </div>
+        
+            </div>
+
+            <div class="mb-8"></div>
+
+            <!-- Project 1 -->
+            <div class="w-full md:w-5/12 mx-auto mb-8">
+
+                <!-- Projects -->
+                <div class="text-center text-2xl font-bold">
+                    Delaware Highlands Assisted Living<br> Menu Application
+                </div>
+
+                <!-- Stack -->
+                <div class="mb-4 text-center italic">
+                    JavaScript, PHP, HTML, CSS
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                    Developed a web application for Delaware Highlands Assisted Living, 
+                    enhancing the residents' quality of life and streamlining workers' tasks.
+                </div>
+
+                <div class="mb-4">
+                    The application efficiently displayed the daily menu on smart TVs, 
+                    providing residents with easy access to meal information and improving their dining experience.
+                </div>
+
+                <div class="mb-4">
+                    Workers benefited from real-time menu updates via mobile phones, enabling seamless menu management, 
+                    reducing paperwork, and improving overall efficiency. This digital solution brought convenience 
+                    and enhanced services to the <strong>120-resident building</strong>.
+                </div>
+
+            </div>
+
+            <!-- Project 1 Images -->
+            <div class="w-full md:w-7/12 m-auto">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <img src="./images/dhal_menu_home.jpg" alt="Landing Page" class="w-full h-auto" />
+                    <img src="./images/dhal_menu_modal.jpg" alt="Patients" class="w-full h-auto" />
+                    <img src="./images/dhal_live_2.jpg" alt="Logs" class="w-full h-auto" />
+                    <img src="./images/dhal_live_3.jpg" alt="Stats" class="w-full h-auto" />
+                </div>
+            
+            </div>
+
+            <div class="mb-8"></div>
+
+            <!-- Project 1 -->
+            <div class="w-full md:w-5/12 mx-auto mb-8">
+
+                <!-- Projects -->
+                <div class="text-center text-2xl font-bold">
+                    ETA Forecast
+                </div>
+
+                <!-- Stack -->
+                <div class="mb-4 text-center italic">
+                    React.js, Express.js, Google Directions API, Google Places API
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                    Developed a user-friendly React + Express app to help people avoid traffic by 
+                    showing a forecast of travel times. Used Google Directions API for real-time traffic data 
+                    to display reliable estimates in 30-minute intervals
+                </div>
+
+            </div>
+
+            <!-- Project 1 Images -->
+            <div class="w-full md:w-7/12 m-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/d_VIxkrrp80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <img src="./images/eta_1.jpg" alt="Patients" class="w-full h-auto" />
+                </div>
+            </div>
+
+            <div class="mb-8"></div>
+
+        </div>
+
+        <div id="webgl-container" style="position: fixed; bottom: 20px; right: 20px; width: 150px; height: 150px; pointer-events: none; z-index: 10;"></div>
+
+    </body>
+
+    <script type="module">
+
+import * as THREE from './js/three.module.js';
+import { GLTFLoader } from './js/GLTFLoader.js';
+
+        const container = document.getElementById('webgl-container');
+
+        // Set up the Three.js scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            75, // Field of View
+            container.offsetWidth / container.offsetHeight, // Aspect Ratio
+            0.1, // Near Clipping Plane
+            1000 // Far Clipping Plane
+        );
+        camera.position.z = 5; // Move camera back to view the sheep
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true }); // Transparent background
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        container.appendChild(renderer.domElement);
+
+        // Add lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Soft white light
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        // Load the sheep model
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            '/images/sheep.glb', // Replace with the actual path to your sheep model
+            (gltf) => {
+                const sheep = gltf.scene;
+                sheep.scale.set(0.5, 0.5, 0.5); // Scale the model to fit the container
+                scene.add(sheep);
+
+                // Rotate the sheep based on cursor movement
+                document.addEventListener('mousemove', (event) => {
+                    const x = (event.clientX / window.innerWidth) * 2 - 1;
+                    const y = -(event.clientY / window.innerHeight) * 2 + 1;
+                    sheep.rotation.x = y * Math.PI * 0.5; // Rotate on X-axis
+                    sheep.rotation.y = x * Math.PI * 0.5; // Rotate on Y-axis
+                });
+            },
+            undefined,
+            (error) => {
+                console.error('Error loading the sheep model:', error);
+            }
+        );
+
+        const mixer = new THREE.AnimationMixer(gltf.scene);
+        gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
+        const clock = new THREE.Clock();
+        const animate = () => {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            mixer.update(delta);
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+
+    </script>
+
+</html>
+
