@@ -359,10 +359,10 @@
             </div>
 
             <div class="mb-8"></div>
-
+ 
         </div>
 
-        <div id="webgl-container" style="position: fixed; bottom: 20px; right: 20px; width: 150px; height: 150px; pointer-events: none; z-index: 10;"></div>
+        <div id="webgl-container" style="position: fixed; bottom: 10px; right: 10px; width: 200px; height: 200px; pointer-events: none; z-index: 10;"></div>
 
     </body>
 
@@ -376,35 +376,51 @@
             75, // Field of View
             container.offsetWidth / container.offsetHeight, // Aspect Ratio
             0.1, // Near Clipping Plane
-            1000 // Far Clipping Plane
+            1000 // Far Clipping Plane          
         );
-        camera.position.z = 5; // Move camera back to view the sheep
+        camera.position.set(0, 0.5, 2); // Adjust Y value (second parameter) to change vertical viewing angle
+        camera.lookAt(0, 0.5, 0); // Make camera look at the sheep's center
 
         const renderer = new THREE.WebGLRenderer({ alpha: true }); // Transparent background
         renderer.setSize(container.offsetWidth, container.offsetHeight);
         container.appendChild(renderer.domElement);
 
         // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 2); // Soft white light
         scene.add(ambientLight);
 
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(10, 10, 10);
+        const pointLight = new THREE.PointLight(0xffffff, 2);
+        pointLight.position.set(2, 5, 5);
         scene.add(pointLight);
+
+        // Add a second point light from another angle (optional)
+        const pointLight2 = new THREE.PointLight(0xffffff, 2);
+        pointLight2.position.set(-2, -5, -5);
+        scene.add(pointLight2);
 
         // Load the sheep model
         const loader = new THREE.GLTFLoader();
         loader.load(
-            '/images/sheep.glb', // Replace with the actual path to your sheep model
+            '/images/sheep.glb',
             (gltf) => {
-                const sheep = gltf.scene;
-                sheep.scale.set(0.5, 0.5, 0.5); // Scale the model to fit the container
-                scene.add(sheep);
-
-                // Create animation mixer inside the callback
-                const mixer = new THREE.AnimationMixer(gltf.scene);
-                gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
                 
+                const sheep = gltf.scenes[0];
+                sheep.scale.set(0.5, 0.5, 0.5);
+                scene.add(sheep);
+                
+                // Set initial rotation (45 degrees around Y axis)
+                sheep.rotation.y = -Math.PI / 4; // Math.PI/4 is 45 degrees
+
+                // Set up animation
+                const mixer = new THREE.AnimationMixer(sheep);
+                const runningAnimation = gltf.animations.find(anim => anim.name === 'AnimalArmature|AnimalArmature|AnimalArmature|Run'); // Or use the index if you know it
+                if (runningAnimation) {
+                    const action = mixer.clipAction(runningAnimation);
+                    action.play();
+                } else {
+                    console.warn('Running animation not found:', gltf.animations);
+                }
+
                 const clock = new THREE.Clock();
                 const animate = () => {
                     requestAnimationFrame(animate);
@@ -418,9 +434,9 @@
                 // Rotate the sheep based on cursor movement
                 document.addEventListener('mousemove', (event) => {
                     const x = (event.clientX / window.innerWidth) * 2 - 1;
-                    const y = -(event.clientY / window.innerHeight) * 2 + 1;
-                    sheep.rotation.x = y * Math.PI * 0.5; // Rotate on X-axis
-                    sheep.rotation.y = x * Math.PI * 0.5; // Rotate on Y-axis
+                    // const y = -(event.clientY / window.innerHeight) * 2 + 1;
+                    // sheep.rotation.x = y * Math.PI * 0.5;
+                    sheep.rotation.y = x * Math.PI * 0.5;
                 });
             },
             undefined,
