@@ -399,6 +399,20 @@
                 sheep.scale.set(0.5, 0.5, 0.5); // Scale the model to fit the container
                 scene.add(sheep);
 
+                // Create animation mixer inside the callback
+                const mixer = new THREE.AnimationMixer(gltf.scene);
+                gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
+                
+                const clock = new THREE.Clock();
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    const delta = clock.getDelta();
+                    mixer.update(delta);
+                    renderer.render(scene, camera);
+                };
+
+                animate();
+
                 // Rotate the sheep based on cursor movement
                 document.addEventListener('mousemove', (event) => {
                     const x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -412,19 +426,6 @@
                 console.error('Error loading the sheep model:', error);
             }
         );
-
-        const mixer = new THREE.AnimationMixer(gltf.scene);
-        gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
-        const clock = new THREE.Clock();
-        const animate = () => {
-            requestAnimationFrame(animate);
-            const delta = clock.getDelta();
-            mixer.update(delta);
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
 
     </script>
 
