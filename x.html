@@ -25,6 +25,21 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
         <!-- GLTF Loader -->
         <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+        <style>
+            @keyframes gradient-rotate {
+                0% {
+                    background-position: 0% 50%;
+                }
+                100% {
+                    background-position: 200% 50%;
+                }
+            }
+            
+            .animate-gradient {
+                background-size: 200% auto;
+                animation: gradient-rotate 6s linear infinite;
+            }
+        </style>
     </head>
 
     <body class="text-sm md:text-base bg-white m-0 text-black p-10 max-w-screen overflow-x-hidden">
@@ -37,9 +52,69 @@
             </div>
 
             <!-- Sub Title -->
-            <div class="text-center text-lg mb-4 font-bold">
-                Software Engineer
+            <div class="text-center text-lg mb-4 font-bold typewriter">
+                <span id="dynamic-text"></span>
+                <span class="cursor">|</span>
             </div>
+
+            <style>
+                .cursor {
+                    animation: blink 1s infinite;
+                }
+
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            </style>
+
+            <script>
+                const titles = [
+                    "Software Engineer",
+                    "Irvine, CA",
+                    "USC Grad",
+                    "Avid Gym Goer"
+                ];
+
+                let titleIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                const typingSpeed = 100;
+                const deletingSpeed = 50;
+                const pauseTime = 2000;
+
+                function typeText() {
+                    const currentTitle = titles[titleIndex];
+                    const text = document.getElementById('dynamic-text');
+
+                    if (isDeleting) {
+                        text.textContent = currentTitle.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        text.textContent = currentTitle.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentTitle.length) {
+                        // Pause at end of typing
+                        isDeleting = true;
+                        setTimeout(typeText, pauseTime);
+                        return;
+                    }
+
+                    if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        titleIndex = (titleIndex + 1) % titles.length;
+                        setTimeout(typeText, typingSpeed);
+                        return;
+                    }
+
+                    setTimeout(typeText, isDeleting ? deletingSpeed : typingSpeed);
+                }
+
+                // Start the typing animation
+                typeText();
+            </script>
 
             <!-- Icon Links -->
             <div class="flex space-x-8 w-full items-center justify-center text-3xl">
@@ -64,8 +139,12 @@
             <div class="mb-4"></div>
 
              <!-- Profile Photo -->
-            <div class="text-center w-36 h-36 rounded-full overflow-hidden m-auto border border-black">
-                <img src="./profile.jpg" />
+            <div class="text-center w-36 h-36 rounded-full overflow-hidden m-auto relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0011FF] via-[#0099FF] via-[#00FFE0] via-[#0099FF] to-[#0011FF] animate-gradient rounded-full p-[2px]">
+                    <div class="bg-white rounded-full w-full h-full overflow-hidden">
+                        <img src="./profile.jpg" class="w-full h-full object-cover" />
+                    </div>
+                </div>
             </div>
 
             <div class="mb-4"></div>
@@ -229,10 +308,10 @@
             <!-- Project 1 Images -->
             <div class="w-full md:w-7/12 m-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <img src="./images/ai_client_services/landing_page.jpg" alt="Landing Page" class="w-full h-auto" />
-                    <img src="./images/ai_client_services/patients.jpg" alt="Patients" class="w-full h-auto" />
-                    <img src="./images/ai_client_services/logs.jpg" alt="Logs" class="w-full h-auto" />
-                    <img src="./images/ai_client_services/stats.jpg" alt="Stats" class="w-full h-auto" />
+                    <img src="./images/ai_client_services/landing_page.jpg" alt="Landing Page" class="w-full h-auto rounded-md" />
+                    <img src="./images/ai_client_services/patients.jpg" alt="Patients" class="w-full h-auto rounded-md" />
+                    <img src="./images/ai_client_services/logs.jpg" alt="Logs" class="w-full h-auto rounded-md" />
+                    <img src="./images/ai_client_services/stats.jpg" alt="Stats" class="w-full h-auto rounded-md" />
                 </div>
             </div>
 
@@ -274,8 +353,8 @@
             <div class="w-full md:w-7/12 m-auto">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3oGMCvCoD4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <img src="./images/thebrowserbot.jpg" alt="Landing Page" class="w-full h-auto" />
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3oGMCvCoD4s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share " class="rounded-md" allowfullscreen></iframe>
+                    <img src="./images/thebrowserbot.jpg" alt="Landing Page" class="w-full h-auto rounded-md" />
                 </div>
         
             </div>
@@ -318,10 +397,10 @@
             <div class="w-full md:w-7/12 m-auto">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <img src="./images/dhal_menu_home.jpg" alt="Landing Page" class="w-full h-auto" />
-                    <img src="./images/dhal_menu_modal.jpg" alt="Patients" class="w-full h-auto" />
-                    <img src="./images/dhal_live_2.jpg" alt="Logs" class="w-full h-auto" />
-                    <img src="./images/dhal_live_3.jpg" alt="Stats" class="w-full h-auto" />
+                    <img src="./images/dhal_menu_home.jpg" alt="Landing Page" class="w-full h-auto rounded-md" />
+                    <img src="./images/dhal_menu_modal.jpg" alt="Patients" class="w-full h-auto rounded-md" />
+                    <img src="./images/dhal_live_2.jpg" alt="Logs" class="w-full h-auto rounded-md" />
+                    <img src="./images/dhal_live_3.jpg" alt="Stats" class="w-full h-auto rounded-md" />
                 </div>
             
             </div>
@@ -353,8 +432,8 @@
             <!-- Project 1 Images -->
             <div class="w-full md:w-7/12 m-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/d_VIxkrrp80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <img src="./images/eta_1.jpg" alt="Patients" class="w-full h-auto" />
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/d_VIxkrrp80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" class="rounded-md" allowfullscreen></iframe>
+                    <img src="./images/eta_1.jpg" alt="Patients" class="w-full h-auto rounded-md" />
                 </div>
             </div>
 
@@ -363,6 +442,9 @@
         </div>
 
         <div id="webgl-container" style="position: fixed; bottom: 10px; right: 10px; width: 200px; height: 200px; pointer-events: none; z-index: 10;"></div>
+        <div style="position: fixed; bottom: 0; right: 10px; width: 200px; text-align: center; font-size: 11px; color: black; pointer-events: none; z-index: 10;">
+            no point, just for fun :)
+        </div>
 
     </body>
 
@@ -403,13 +485,13 @@
         loader.load(
             '/images/sheep.glb',
             (gltf) => {
-                
                 const sheep = gltf.scenes[0];
                 sheep.scale.set(0.5, 0.5, 0.5);
+                sheep.position.set(0, -0.5, 0);
                 scene.add(sheep);
                 
                 // Set initial rotation (45 degrees around Y axis)
-                sheep.rotation.y = -Math.PI / 4; // Math.PI/4 is 45 degrees
+                sheep.rotation.y = -Math.PI / 4; // Initial rotation
 
                 // Set up animation
                 const mixer = new THREE.AnimationMixer(sheep);
@@ -434,9 +516,7 @@
                 // Rotate the sheep based on cursor movement
                 document.addEventListener('mousemove', (event) => {
                     const x = (event.clientX / window.innerWidth) * 2 - 1;
-                    // const y = -(event.clientY / window.innerHeight) * 2 + 1;
-                    // sheep.rotation.x = y * Math.PI * 0.5;
-                    sheep.rotation.y = x * Math.PI * 0.5;
+                    sheep.rotation.y = (-Math.PI / 4) + (x * Math.PI * 0.25); // Reduced rotation range to 0.25
                 });
             },
             undefined,
