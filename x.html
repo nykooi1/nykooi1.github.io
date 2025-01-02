@@ -68,11 +68,12 @@
                 }
             </style>
 
+            <!-- Typing Animation -->
             <script>
                 const titles = [
                     "Software Engineer",
                     "Irvine, CA",
-                    "USC Grad",
+                    "USC Graduate",
                     "Avid Gym Goer"
                 ];
 
@@ -441,13 +442,16 @@
  
         </div>
 
-        <div id="webgl-container" style="position: fixed; bottom: 10px; right: 10px; width: 200px; height: 200px; pointer-events: none; z-index: 10;"></div>
-        <div style="position: fixed; bottom: 0; right: 10px; width: 200px; text-align: center; font-size: 11px; color: black; pointer-events: none; z-index: 10;">
-            no point, just for fun :)
+        <div class="collapse md:visible">
+            <div id="webgl-container" style="position: fixed; bottom: 10px; right: 10px; width: 200px; height: 200px; pointer-events: none; z-index: 10;"></div>
+            <div style="position: fixed; bottom: 0; right: 10px; width: 200px; text-align: center; font-size: 11px; color: black; pointer-events: none; z-index: 10;">
+                no point, just wanted to try webgl :)
+            </div>
         </div>
 
     </body>
 
+    <!-- WebGL Stuff -->
     <script>
 
         const container = document.getElementById('webgl-container');
@@ -495,7 +499,7 @@
 
                 // Set up animation
                 const mixer = new THREE.AnimationMixer(sheep);
-                const runningAnimation = gltf.animations.find(anim => anim.name === 'AnimalArmature|AnimalArmature|AnimalArmature|Run'); // Or use the index if you know it
+                const runningAnimation = gltf.animations.find(anim => anim.name === 'AnimalArmature|AnimalArmature|AnimalArmature|Run');
                 if (runningAnimation) {
                     const action = mixer.clipAction(runningAnimation);
                     action.play();
